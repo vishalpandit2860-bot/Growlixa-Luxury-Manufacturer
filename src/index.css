@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 4%;
+    --foreground: 42 100% 95%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 42 100% 95%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 42 100% 95%;
+
+    --primary: 40 55% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 213 55% 11%;
+    --secondary-foreground: 42 100% 95%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 69%;
+
+    --accent: 40 55% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 4 70% 46%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 40 55% 58%;
+
+    --radius: 0.5rem;
+
+    --gold: 40 55% 58%;
+    --gold-bright: 45 85% 65%;
+    --crimson: 4 70% 46%;
+    --emerald: 153 63% 29%;
+    --royal-purple: 282 40% 36%;
+    --navy: 213 55% 11%;
+    --ivory: 42 100% 95%;
+    --charcoal: 0 0% 11%;
+    --silver: 0 0% 69%;
+
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 42 100% 95%;
+    --sidebar-primary: 40 55% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 213 55% 11%;
+    --sidebar-accent-foreground: 42 100% 95%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 40 55% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    overflow-wrap: break-word;
+  }
+
+  .font-accent {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-16;
+  }
+
+  .gold-text {
+    color: hsl(var(--gold));
+  }
+
+  .gold-text-bright {
+    color: hsl(var(--gold-bright));
+  }
+
+  .gold-gradient-text {
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-bright)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gold-gradient-bg {
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-bright)));
+  }
+
+  .dark-gradient-bg {
+    background: linear-gradient(180deg, hsl(220 20% 4%), hsl(230 30% 8%), hsl(213 55% 11%));
+  }
+
+  .navy-bg {
+    background-color: hsl(var(--navy));
+  }
+
+  .section-tag {
+    @apply text-xs uppercase tracking-[0.25em] font-medium;
+    color: hsl(var(--gold));
+    font-family: 'Inter', sans-serif;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight;
+    font-family: 'Playfair Display', serif;
+    text-wrap: balance;
+    color: hsl(var(--ivory));
+  }
+
+  .section-subtitle {
+    @apply text-base sm:text-lg max-w-2xl leading-relaxed;
+    color: hsl(var(--silver));
+    font-family: 'Inter', sans-serif;
+  }
+
+  .gold-divider {
+    @apply w-16 h-0.5;
+    background: linear-gradient(90deg, hsl(var(--gold)), hsl(var(--gold-bright)), transparent);
+  }
+
+  .card-luxury {
+    @apply rounded-lg border transition-all duration-500;
+    background: hsl(0 0% 7%);
+    border-color: hsl(0 0% 14%);
+  }
+
+  @media (hover: hover) {
+    .card-luxury:hover {
+      border-color: hsl(var(--gold) / 0.5);
+      box-shadow: 0 8px 32px hsl(var(--gold) / 0.08), 0 0 0 1px hsl(var(--gold) / 0.1);
+      transform: translateY(-4px);
+    }
+  }
+    box-shadow: 0 8px 32px hsl(var(--gold) / 0.08), 0 0 0 1px hsl(var(--gold) / 0.1);
+    transform: translateY(-4px);
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center px-8 py-3.5 rounded font-medium text-sm tracking-wide transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-bright)));
+    color: hsl(220 20% 4%);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+
+  .btn-gold:hover {
+    box-shadow: 0 4px 24px hsl(var(--gold) / 0.35);
+    transform: translateY(-2px);
+  }
+
+  .btn-gold:active {
+    transform: translateY(0) scale(0.97);
+  }
+
+  .btn-outline-gold {
+    @apply inline-flex items-center justify-center px-8 py-3.5 rounded font-medium text-sm tracking-wide transition-all duration-300 border;
+    border-color: hsl(var(--gold) / 0.5);
+    color: hsl(var(--gold));
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    background: transparent;
+  }
+
+  .btn-outline-gold:hover {
+    background: hsl(var(--gold) / 0.1);
+    border-color: hsl(var(--gold));
+    transform: translateY(-2px);
+  }
+
+  .btn-outline-gold:active {
+    transform: translateY(0) scale(0.97);
+  }
+
+  .badge-gold {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wider;
+    background: hsl(var(--gold) / 0.15);
+    color: hsl(var(--gold));
+    border: 1px solid hsl(var(--gold) / 0.3);
+  }
+
+  .badge-crimson {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wider;
+    background: hsl(var(--crimson) / 0.2);
+    color: hsl(4 80% 60%);
+    border: 1px solid hsl(var(--crimson) / 0.3);
+  }
+
+  .badge-purple {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wider;
+    background: hsl(var(--royal-purple) / 0.2);
+    color: hsl(282 50% 60%);
+    border: 1px solid hsl(var(--royal-purple) / 0.3);
+  }
+
+  .badge-emerald {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wider;
+    background: hsl(var(--emerald) / 0.2);
+    color: hsl(153 63% 45%);
+    border: 1px solid hsl(var(--emerald) / 0.3);
+  }
+
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--gold-bright) / 0.15), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 20px hsl(var(--gold) / 0.2), 0 0 60px hsl(var(--gold) / 0.05);
+  }
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Focus visible */
+*:focus-visible {
+  outline: 2px solid hsl(var(--gold) / 0.6);
+  outline-offset: 2px;
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid hsl(var(--gold) / 0.6);
+  outline-offset: 2px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(220 20% 4%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--gold) / 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--gold) / 0.5);
+}
+
+/* Selection */
+::selection {
+  background: hsl(var(--gold) / 0.3);
+  color: hsl(var(--ivory));
+}
